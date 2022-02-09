@@ -1,18 +1,22 @@
 """ 
     Title: pytech_delete.py
-    Author: Professor Krasso
-    Date: 13 July 2020
+    Author: Grant Roberts
+    Date: 2/8/2022
     Description: Test program for deleting documents from the pytech collection
 """
 
 """ import statements """
+# Import MongoClient from pymongo
 from pymongo import MongoClient
 
+# Import certifi so you can get rid of the certificate errors
+import certifi
+
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+url = "mongodb+srv://admin:admin@cluster0.p89vo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 # connect to the MongoDB cluster 
-client = MongoClient(url)
+client = MongoClient(url, tlsCAFile=certifi.where())
 
 # connect pytech database
 db = client.pytech
