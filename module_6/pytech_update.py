@@ -1,18 +1,22 @@
 """ 
     Title: pytech_update.py
-    Author: Professor Krasso
-    Date: 10 July 2020
+    Author: Grant Roberts
+    Date: 2/8/2022
     Description: Test program for updating a document in the pytech collection
 """
 
 """ import statements """
+# Import MongoClient from pymongo
 from pymongo import MongoClient
 
+# Import certifi so you can get rid of the certificate errors
+import certifi
+
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+url = "mongodb+srv://admin:admin@cluster0.p89vo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 # connect to the MongoDB cluster 
-client = MongoClient(url)
+client = MongoClient(url, tlsCAFile=certifi.where())
 
 # connect pytech database
 db = client.pytech
@@ -31,7 +35,7 @@ for doc in student_list:
     print("  Student ID: " + doc["student_id"] + "\n  First Name: " + doc["first_name"] + "\n  Last Name: " + doc["last_name"] + "\n")
 
 # update student_id 1007
-result = students.update_one({"student_id": "1007"}, {"$set": {"last_name": "Oakenshield II"}})
+result = students.update_one({"student_id": "1007"}, {"$set": {"last_name": "Baggins"}})
 
 # find the updated student document 
 thorin = students.find_one({"student_id": "1007"})
