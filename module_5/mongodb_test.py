@@ -9,16 +9,19 @@
 """ import statements """
 from pymongo import MongoClient
 
+import certifi
+
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.p89vo.mongodb.net/pytech?retryWrites=true&w=majority"
+url = "mongodb+srv://admin:admin@cluster0.p89vo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 # connect to the MongoDB cluster 
-client = MongoClient(url)
+client = MongoClient(url, tlsCAFile=certifi.where())
 
 # connect pytech database
 db = client.pytech
 
 # show the connected collections 
-print("\n -- Pytech COllection List --")
+print("\n -- Pytech Collection List --")
 print(db.list_collection_names())
 
 # show an exit message
