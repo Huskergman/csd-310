@@ -1,7 +1,7 @@
 /*
     Title: whatabook.init.sql
-    Author: Professor Krasso
-    Date: 16 July 2020
+    Author: Grant Roberts
+    Date: 2/22/2022
     Description: WhatABook database initialization script.
 */
 
@@ -65,67 +65,67 @@ CREATE TABLE wishlist (
     insert store record 
 */
 INSERT INTO store(locale)
-    VALUES('1000 Galvin Rd S, Bellevue, NE 68005');
+    VALUES('1010 N 192nd Ct, Elkhorn, NE 68022');
 
 /*
     insert book records 
 */
 INSERT INTO book(book_name, author, details)
-    VALUES('The Return of the King', 'J.R.Tolkien', 'The third part of The Lord of the Rings');
+    VALUES('Permenant Record', 'Edward Snowden', 'Book by Edward Snowden');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('The Fellowship of the Ring', 'J.R.Tolkien', 'The first part of The Lord of the Rings');
+    VALUES('Sandworm', 'Andy Greenburg', 'A New Era of Cyberwar and the Hunt for the Kremlins Most Dangerous Hackers');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('The Two Towers', 'J.R.Tolkien', "The second part of The Lord of The Rings");
+    VALUES('Cyber War...and Peace', 'Nicholas Shevelyov', "Building Digital Trust Today with History as Our Guide");
 
 INSERT INTO book(book_name, author)
-    VALUES('The Hobbit or There and Back Again', 'J.R.Tolkien');
+    VALUES('Social Engineering: The Science of Human Hacking', 'Christopher Hadnagy');
 
 INSERT INTO book(book_name, author)
-    VALUES('Dune: Deluxe Edition', 'Frank Herbert');
+    VALUES('The Art of Deception: Controlling the Human Element of Security', 'Kevin Mitnick');
 
 INSERT INTO book(book_name, author)
-    VALUES("Charlotee's Web", 'E.B. White');
+    VALUES('The Art of Invisibility: The Worlds Most Famous Hacker Teaches You How to Be Safe in the Age of Big Brother and Big Data', 'Kevin Mitnick');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Great Gatsby', 'F. Scott Fitzgerald');
+    VALUES('The Smartest Person in the Room: The Root Cause and New Solution for Cybersecurity', 'Christian Espinosa');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Lion, the Witch, and the Wardrobe', 'C.S. Lewis');
+    VALUES('Burners & Black Markets - How to Be Invisible', 'Lance Henderson');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Catcher and the Rye', 'J.D. Salinger');
+    VALUES('Human Hacking: Win Friends, Influence People, and Leave Them Better Off for Having Met You', 'Christopher Hadnagy');
 
 /*
     insert user
 */ 
 INSERT INTO user(first_name, last_name) 
-    VALUES('Thorin', 'Oakenshield');
+    VALUES('Grant', 'Roberts');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Bilbo', 'Baggins');
+    VALUES('Shyanne', 'Roberts');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Frodo', 'Baggins');
+    VALUES('Grayson', 'Roberts');
 
 /*
     insert wishlist records 
 */
 INSERT INTO wishlist(user_id, book_id) 
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Thorin'), 
-        (SELECT book_id FROM book WHERE book_name = 'The Hobbit or There and Back Again')
+        (SELECT user_id FROM user WHERE first_name = 'Grant'), 
+        (SELECT book_id FROM book WHERE book_name = 'Sandworm')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Bilbo'),
-        (SELECT book_id FROM book WHERE book_name = 'The Fellowship of the Ring')
+        (SELECT user_id FROM user WHERE first_name = 'Shyanne'),
+        (SELECT book_id FROM book WHERE book_name = 'Social Engineering: The Science of Human Hacking')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Frodo'),
-        (SELECT book_id FROM book WHERE book_name = 'The Return of the King')
+        (SELECT user_id FROM user WHERE first_name = 'Grayson'),
+        (SELECT book_id FROM book WHERE book_name = 'Cyber War...and Peace')
     );
