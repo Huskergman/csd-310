@@ -1,2 +1,2 @@
 # csd-310
- GitHub for Database Class
+ Web Development with HTML & CSS
